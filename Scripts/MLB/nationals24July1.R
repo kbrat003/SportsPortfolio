@@ -176,3 +176,27 @@ ggplot(finneganpercentile_df, aes(x = Attribute, y = Percentile)) +
        y = "Percentile",
        caption = "By Kyle Bratzel | @kylebratzel | kbrat003@ucr.edu | July 2 2024") +
   theme_minimal()
+
+harvey <- 70
+
+harveylowpercentiles <- lowcalculate_percentiles_for_attributes(bullpenPlayer, harvey, pitcherLowAttributes)
+harveyhighpercentiles <- highcalculate_percentiles_for_attributes(bullpenPlayer, harvey, pitcherHighAttributes)
+
+harveypercentiles <- c(harveylowpercentiles, harveyhighpercentiles)
+
+harveypercentile_df <- data.frame(
+  Attribute = names(harveypercentiles),
+  Percentile = as.numeric(harveypercentiles)
+)
+
+harveypercentile_df
+
+# Plot the bar chart
+ggplot(harveypercentile_df, aes(x = Attribute, y = Percentile)) +
+  geom_bar(stat = "identity", fill = rgb(171,0,3,maxColorValue = 255)) +
+  ylim(0, 100) + # Set y-axis limit from 0 to 100
+  labs(title = "Hunter Harvey Statistical Percentiles",
+       x = "Statistic",
+       y = "Percentile",
+       caption = "By Kyle Bratzel | @kylebratzel | kbrat003@ucr.edu | July 13 2024") +
+  theme_minimal()

@@ -15,7 +15,7 @@ rushers <- pbp %>% group_by(p_id = rusher_player_id, posteam) %>%
             wpa = sum(wpa),
             vwpa = sum(vegas_wpa),
             rushes = n(),
-            explosives = sum(yards_gained >=10),
+            explosives = sum(yards_gained >=15),
             negatives = sum(yards_gained < 0),
             scoring_drive_perc = sum(fixed_drive_result == "Touchdown")/rushes,
             series_succ_rate = sum(series_success == 1)/rushes,
@@ -87,7 +87,7 @@ netTable %>%
   ggplot(aes(x = total_epa_play, y = total_explosive_rate)) + 
   geom_point(aes(fill = team_color, color = team_color2, size = touches), shape = 21) + 
   geom_text_repel(aes(label = name))+
-  geom_smooth(method = "lm", color = "black", size = 0.5, alpha = 0.5, se = FALSE) +
+  geom_smooth(method = "lm", color = "black", size = 0.5, alpha = 0.2, se = FALSE) +
   theme_minimal() +
   labs(x = "EPA/Touch",
        y = "Net explosive Play Rate",
@@ -105,8 +105,8 @@ netTable %>%
 netTable %>% 
   ggplot(aes(x = rush_epa_play, y = rushing_explosive_rate)) + 
   geom_point(aes(fill = team_color, color = team_color2, size = rushes), shape = 21) + 
-  geom_text_repel(aes(label = name))+
-  geom_smooth(method = "lm", color = "black", size = 0.5, alpha = 0.5, se = FALSE) +
+  geom_text_repel(aes(label = name)) +
+  geom_smooth(method = "lm", color = "black", size = 0.5, alpha = 0.2, se = FALSE) +
   theme_minimal() +
   labs(x = "EPA/Rush",
        y = "Rushing explosive Play Rate",
@@ -127,7 +127,7 @@ recTable %>%
   ggplot(aes(x = rec_epa_play, y = receiving_explosive_rate)) + 
   geom_point(aes(fill = team_color, color = team_color2, size = catches), shape = 21) + 
   geom_text_repel(aes(label = name))+
-  geom_smooth(method = "lm", color = "black", size = 0.5, alpha = 0.5, se = FALSE) +
+  geom_smooth(color = "black", size = 0.5, alpha = 0.2) +
   theme_minimal() +
   labs(x = "EPA/Catch",
        y = "Receiving explosive Play Rate",
@@ -145,7 +145,7 @@ netTable %>%
   ggplot(aes(x = opportunity, y = scoring_drive_perc)) + 
   geom_point(aes(fill = team_color, color = team_color2, size = touches), shape = 21) + 
   geom_text_repel(aes(label = name)) +
-  geom_smooth(method = "lm", color = "black", size = 0.5, alpha = 0.5, se = FALSE) +
+  geom_smooth(color = "black", size = 0.5, alpha = 0.2) +
   theme_minimal() +
   labs(x = "Average Touchdown Probability per Touch",
        y = "Percentage of Drives Resulting in a Touchdown",

@@ -34,5 +34,5 @@ Code behind visualizations analyzing sports trends, teams, and players performan
 
 <div style="display: flex; flex-direction: row; justify-content: space-between;">
   <img src="https://github.com/kbrat003/SportsPortfolio/blob/fe16d9103710073a77663b3c652b83f6c758d625/Visualizations/NFL/chaseBrown/totalExplosives.jpeg" width="500" height="400"/>
-  <img src="https://github.com/kbrat003/SportsPortfolio/blob/fe16d9103710073a77663b3c652b83f6c758d625/Visualizations/NFL/chaseBrown/scoringOverExpectation.jpeg" width="500" height="400"/>
+  <img src="https://github.com/kbrat003/SportsPortfolio/blob/b7e5a05d427f02b9de27bf4f5796f42de7dc5117/Visualizations/NFL/chaseBrown/scoringOverExpectation.jpeg" width="500" height="400"/>
 </div>
